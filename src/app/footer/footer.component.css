@@ -1,0 +1,17 @@
+.footer {
+    text-align: center;
+}
+
+.footer p {
+    font-family: 'Courier New', Courier, monospace;
+    color: #7da1a3;
+}
+
+.social-media {
+    margin: 5px;
+}
+
+.social-media img {
+    width: 35px;
+    height: 35px;
+}
