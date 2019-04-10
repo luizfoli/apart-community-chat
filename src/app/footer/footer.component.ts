@@ -9,7 +9,7 @@ export class FooterComponent implements OnInit {
 
   private textContent = 'Luiz Foli - Full Stack Developer';
   private linkedinUrl = 'https://www.linkedin.com/in/luiz-oliveira-4b7787120/';
-  private githubUrl = '';
+  private githubUrl = 'https://github.com/luizfoli';
 
   constructor() { }
 

@@ -4,7 +4,7 @@
 
 .footer p {
     font-family: 'Courier New', Courier, monospace;
-    color: #7da1a3;
+    color: #366c6e;
 }
 
 .social-media {
@@ -14,4 +14,6 @@
 .social-media img {
     width: 35px;
     height: 35px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
