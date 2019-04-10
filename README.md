@@ -1,3 +1,3 @@
 # Apartment Community Chat
 
-Projeto do 5º Semestre do - Ciência da Computação
+Repositorio front-end do projeto Apartment Community Chat - 5º Semestre Ciência da Computação
