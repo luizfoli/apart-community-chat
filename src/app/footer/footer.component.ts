@@ -7,13 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  public textContent = 'Luiz Foli - Full Stack Developer';
-  public linkedinUrl = 'https://www.linkedin.com/in/luiz-oliveira-4b7787120/';
-  public githubUrl = 'https://github.com/luizfoli';
+  textContent: string;
+  linkedinUrl: string;
+  githubUrl: string;
 
   constructor() { }
 
   ngOnInit() {
+    this.textContent = 'Luiz Foli - Full Stack Developer'
+    this.linkedinUrl = 'https://www.linkedin.com/in/luiz-oliveira-4b7787120/';
+    this.githubUrl = 'https://github.com/luizfoli';
   }
 
 }
