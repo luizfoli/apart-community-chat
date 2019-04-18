@@ -16,3 +16,8 @@ p {
     padding-left: 5px;
     padding-right: 5px;
 }
+
+img:hover {
+    opacity: 0.5;
+}
+
