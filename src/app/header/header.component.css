@@ -1,0 +1,32 @@
+.header-content {
+    overflow: hidden;
+    padding: 10px 15px;  
+}
+
+.header-content p {
+  font-size: 20px;
+}
+
+.menu {
+  text-align: center;
+}
+
+.menu p {
+  display:inline-block;
+  padding: 5px;
+}
+
+button {
+  border: 0px;
+  border-radius: 5px;
+  outline: none;
+  width: 125px;
+  height: 30px;
+}
+
+button:hover {
+  background-color: #fff;
+  border: solid 1px;
+  border-color: #004860;
+  color: #004860;
+}

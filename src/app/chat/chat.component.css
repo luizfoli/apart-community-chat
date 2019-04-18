@@ -1,0 +1,9 @@
+.chat-panel {
+    background-color: aquamarine;
+}
+
+.sender-panel {
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: antiquewhite;
+}
