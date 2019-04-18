@@ -12,4 +12,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  printHello(obj:HTMLButtonElement) {
+    console.log('I was clicked. BY ' + obj.value);
+    
+  }
+
 }
