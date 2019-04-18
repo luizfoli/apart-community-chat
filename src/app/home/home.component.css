@@ -1,17 +1,5 @@
-h1 {
-    text-align: center;
-    padding-right: auto;
-    padding-left: auto;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 20px;
-    color: #6b8e91
-}
-
-p {
-    text-align: center;
-    padding-right: auto;
-    padding-left: auto;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 12px;
-    color: #a4a6a8
+.panel {
+    display: inline-block;
+    width: 50%;
+    height: 100%;
 }
