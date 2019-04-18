@@ -2,9 +2,8 @@
     text-align: center;
 }
 
-.footer p {
-    font-family: 'Courier New', Courier, monospace;
-    color: #366c6e;
+p {
+    font-size: 15px;
 }
 
 .social-media {

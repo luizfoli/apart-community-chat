@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { InfoComponent } from './info/info.component';
 import { ChatComponent } from './chat/chat.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ChatComponent } from './chat/chat.component';
     HomeComponent,
     FooterComponent,
     InfoComponent,
-    ChatComponent
+    ChatComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
