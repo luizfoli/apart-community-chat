@@ -3,6 +3,7 @@
         test
     </div>
     <div class="sender-panel">
-        <input type="text" placeholder="Digite sua mensagem">
+        <input #message type="text" placeholder="Digite sua mensagem">
+        <button (click)="sendMessage(message.value)">Envia</button>
     </div>
 </div>

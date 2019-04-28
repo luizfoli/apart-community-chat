@@ -17,16 +17,16 @@
 }
 
 button {
-  border: 0px;
   border-radius: 5px;
   outline: none;
   width: 125px;
   height: 30px;
-}
-
-button:hover {
   background-color: #fff;
   border: solid 1px;
   border-color: #004860;
   color: #004860;
+}
+
+button:hover {
+  opacity: 0.5;
 }
