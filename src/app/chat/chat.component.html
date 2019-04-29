@@ -2,8 +2,8 @@
     <div class="messages-panel">
     </div>
     <div class="message-sender">
-        <input type="text" placeholder="Digite seu nome">
-        <textarea placeholder="Digite sua mensagem"></textarea>
-        <button class="btn-sender">Enviar</button>
+        <input #inputAuthor type="text" id="inputAuthor" placeholder="Digite seu nome">
+        <textarea #inputMessage id="inputMessage" placeholder="Digite sua mensagem"></textarea>
+        <button class="btn-sender" (click)="sendMessage(inputAuthor.value, inputMessage.value)">Enviar</button>
     </div>
 </div>

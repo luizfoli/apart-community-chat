@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 import { SocketService } from '../service/socket.service';
 import { MessageModel } from './model/MessageModel';
 import { Message } from "@stomp/stompjs";
+
 
 const WEBSOCKET_URL = "ws://localhost:9090/socket";
 const EXAMPLE_URL = "/send/message";
@@ -12,10 +13,13 @@ const EXAMPLE_URL = "/send/message";
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
+
 export class ChatComponent implements OnInit {
 
   private socketService: SocketService;
   messages: MessageModel[] = [];
+
+  @ViewChild('inputMessage') inputMessage: ElementRef;
 
   constructor() {
 
@@ -24,8 +28,8 @@ export class ChatComponent implements OnInit {
 
     // Me 'inscrevo' no WebSocket para sempre receber atualizações de Mensagens.
     this.socketService.stream().subscribe((message: Message) => {
-      this.messages.push(this.prepareToReceiveNewMessage(message));
-      console.log(this.messages);
+      //this.messages.push(this.prepareToReceiveNewMessage(message));
+      console.log(message.body);
     });
 
   }
@@ -38,27 +42,33 @@ export class ChatComponent implements OnInit {
    * Message em um objeto do tipo MessageModel.
    */
 
-  private prepareToReceiveNewMessage(message:Message):MessageModel {
-    
+  private prepareToReceiveNewMessage(message: Message): MessageModel {
+
     let receivedMessage = new MessageModel();
     let messageInJson = JSON.parse(JSON.stringify(message.body));
-
-    console.log("JSON: " + messageInJson)
-    console.log(typeof(messageInJson))
-
     receivedMessage.author = JSON.parse(JSON.stringify(message.body)).author;
-    receivedMessage.message = messageInJson.message;  
-    receivedMessage.dtSend  = messageInJson.dtSend;
+    receivedMessage.message = messageInJson.message;
+    receivedMessage.dtSend = messageInJson.dtSend;
 
     return receivedMessage;
   }
 
-  sendMessage(messageContent:string) {
+  sendMessage(messageAuthor: string, messageContent: string) {
     let newMessage = new MessageModel();
-    newMessage.author = "Luiz";
+    newMessage.author = messageAuthor;
     newMessage.dtSend = new Date();
     newMessage.message = messageContent;
     this.socketService.send(newMessage);
+    this.afterSendMessage();
+  }
+
+  /**
+   * Método responsável por realizar ações necessárias 
+   * no layout depois do envio da mensagem.
+   */
+
+  private afterSendMessage() {
+    this.inputMessage.nativeElement.value = "";
   }
 
 }
