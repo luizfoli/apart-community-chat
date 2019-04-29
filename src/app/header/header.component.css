@@ -1,32 +1,36 @@
-.header-content {
-    overflow: hidden;
-    padding: 10px 15px;  
+.header {
+    position: relative;
 }
 
-.header-content p {
-  font-size: 20px;
+.text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
 }
 
-.menu {
-  text-align: center;
+.heading-primary {
+    color:#fff;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    margin-bottom: 60px;
 }
 
-.menu p {
-  display:inline-block;
-  padding: 5px;
+.heading-primary-main {
+    display: inline-block;
+    font-size: 35px;
+    font-weight: 300;
+    letter-spacing: 10px;
+
+    animation: moveInleft 1s ease-out;
 }
 
-button {
-  border: 0px;
-  border-radius: 5px;
-  outline: none;
-  width: 125px;
-  height: 30px;
-}
-
-button:hover {
-  background-color: #fff;
-  border: solid 1px;
-  border-color: #004860;
-  color: #004860;
+.heading-primary-sub {
+    display: block;
+    font-size: 10px;
+    font-weight: 700px;
+    letter-spacing: 5px;
+    animation: moveInBottom 1s ease-out;
+    animation-fill-mode: backwards ease-out .75s;
 }

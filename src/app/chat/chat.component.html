@@ -1,8 +1,9 @@
-<div class="container">
-    <div class="chat-panel">
-        test
+<div class="chat-panel">
+    <div class="messages-panel">
     </div>
-    <div class="sender-panel">
-        <input type="text" placeholder="Digite sua mensagem">
+    <div class="message-sender">
+        <input #inputAuthor type="text" id="inputAuthor" placeholder="Digite seu nome">
+        <textarea #inputMessage id="inputMessage" placeholder="Digite sua mensagem"></textarea>
+        <button class="btn-sender" (click)="sendMessage(inputAuthor.value, inputMessage.value)">Enviar</button>
     </div>
 </div>
