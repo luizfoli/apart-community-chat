@@ -1,12 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 import { SocketService } from '../service/socket.service';
 import { MessageModel } from './model/MessageModel';
 import { Message } from "@stomp/stompjs";
 
-
-const WEBSOCKET_URL = "ws://localhost:9090/socket";
-const EXAMPLE_URL = "/send/message";
+const SEND_MESSAGE = "/send/message";
 
 @Component({
   selector: 'app-chat',
@@ -24,7 +23,7 @@ export class ChatComponent implements OnInit {
   constructor() {
 
     // Inicia uma conexão com o WebSocket.
-    this.socketService = new SocketService(WEBSOCKET_URL, EXAMPLE_URL);
+    this.socketService = new SocketService(environment.urlSocket, SEND_MESSAGE);
 
     // Me 'inscrevo' no WebSocket para sempre receber atualizações de Mensagens.
     this.socketService.stream().subscribe((message: Message) => {
