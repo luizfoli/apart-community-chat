@@ -1,12 +1,37 @@
-.main-color-background {
-    background-color: #004860;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.main-color {
-    color: #004860;
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
 }
 
-.main-font {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color:white;
+@keyframes moveInleft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
 }

@@ -10,7 +10,6 @@ import { ChatComponent } from './chat/chat.component';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SocketService } from './service/socket.service';
-import { Action } from './enum/Action';
 
 @NgModule({
   declarations: [
