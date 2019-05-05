@@ -10,6 +10,7 @@ import { ChatComponent } from './chat/chat.component';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SocketService } from './service/socket.service';
+import { MessageComponent } from './chat/message/message.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { SocketService } from './service/socket.service';
     InfoComponent,
     ChatComponent,
     HeaderComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,

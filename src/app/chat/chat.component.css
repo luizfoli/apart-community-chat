@@ -1,77 +1,94 @@
 .chat-panel {
-    display: block;
-    position: relative;
+  display: block;
+  position: relative;
 
-    animation: moveInBottom .5s ease-out .80s;
-    animation-fill-mode: backwards;
+  animation: moveInBottom .5s ease-out .80s;
+  animation-fill-mode: backwards;
 }
 
 .messages-panel {
-    position: absolute;
-    background-color: #fff;
-    border-radius: 20px;
-    width: 35%;
-    height: 350px;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, 30%);
-    text-align: center;
+  position: absolute;
+  background-color: #fff;
+  border-radius: 10px 0px 0px 10px;
+  width: 35%;
+  height: 350px;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, 30%);
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .message-sender {
-    position: absolute;
-    width: 50%;
-    height: 100px;
-    top: 50%;
-    left: 50%;
-    text-align: center;
-    transform: translate(-50%, 470%);
+  position: absolute;
+  width: 50%;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, 470%);
 }
 
 .message-sender input {
-    position: absolute;
-    width: 85%;
-    left: 1%;
-    min-height: 25px;
-	border: solid 1px rgba(255,255,255,0.8);
-	padding: 8px 25px;
-	color: #002E40;
-	background: rgba(255,255,255,0.8);
-	box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-	border-radius: 25px 0 0 0;
-	font-size: 11pt;
+  position: absolute;
+  width: 85%;
+  left: 1%;
+  min-height: 25px;
+  border: solid 1px rgba(255, 255, 255, 0.8);
+  padding: 8px 25px;
+  color: #002E40;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 25px 0 0 0;
+  font-size: 11pt;
+  outline: none;
 }
 
 .message-sender textarea {
-    position: absolute;
-    width: 85%;
-    top: 45%;
-    left: 1%;
-    min-height: 25px;
-    border: solid 1px rgba(255,255,255,0.8);
-    padding: 10px 25px;
-    color: #002E40;
-	background: rgba(255,255,255,0.8);
-	box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-	border-radius: 0 0 0 25px;
-	
+  position: absolute;
+  width: 85%;
+  top: 45%;
+  left: 1%;
+  min-height: 25px;
+  border: solid 1px rgba(255, 255, 255, 0.8);
+  padding: 10px 25px;
+  color: #002E40;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 0 25px;
+  outline: none;
   height: 50px;
-
-
 }
 
 
 .message-sender button {
-    position: absolute;
-    width:15%;
-    height: 94px;
-    left: 86.5%;
-	border: solid 1px rgba(255,255,255,0.8);
-	background: rgba(255,255,255,0.8);
-	box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-	font-size: 10pt;
-	border-radius: 0 25px 25px 0;
-    color: #777777;
-    text-align: center;
+  position: absolute;
+  width: 15%;
+  height: 94px;
+  left: 86.5%;
+  border: solid 1px rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  font-size: 10pt;
+  border-radius: 0 25px 25px 0;
+  color: #777777;
+  text-align: center;
+  outline: none;
 }
 
+.messages-panel::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #f1f1f1;
+}
+
+.messages-panel::-webkit-scrollbar
+{
+	width: 4px;
+	background-color: #f1f1f1;
+}
+
+.messages-panel::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+}

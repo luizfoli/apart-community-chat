@@ -1,5 +1,6 @@
 export class MessageModel {
     message:string
     author:string
-    dtSend: Date
+    dtSend: string
+    timeDtSend: string
 }
