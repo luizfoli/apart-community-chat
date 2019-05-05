@@ -28,20 +28,18 @@ export class ChatComponent implements OnInit {
 
     // Me 'inscrevo' no WebSocket para sempre receber atualizações de Mensagens.
     this.socketService.stream().subscribe((message: Message) => {
-      //this.messages.push(this.prepareToReceiveNewMessage(message));
-      console.log(message.body);
+      if (!message.body.includes('null')) {
+        this.messages.push(this.prepareToReceiveNewMessage(message));
+        this.scrollDownMessages();
+      }
     });
+
+    console.log(this.messages)
 
   }
 
   ngOnInit() {
-
-    /**
-      * Depois de renderizar a tela, desce o elemento scroll da div
-      * 'messages-panel' o máximo possível.
-      */
-
-    document.getElementById('messagesPanel').scrollTop = 9999999999999;
+    this.scrollDownMessages();
   }
 
   /**
@@ -51,13 +49,21 @@ export class ChatComponent implements OnInit {
 
   private prepareToReceiveNewMessage(message: Message): MessageModel {
 
-    let receivedMessage = new MessageModel();
-    let messageInJson = JSON.parse(JSON.stringify(message.body));
-    receivedMessage.author = JSON.parse(JSON.stringify(message.body)).author;
-    receivedMessage.message = messageInJson.message;
-    receivedMessage.dtSend = messageInJson.dtSend;
+    let messageInJson;
 
-    return receivedMessage;
+    try {
+      messageInJson = JSON.parse(JSON.parse(JSON.stringify(message.body)));
+
+      let receivedMessage = new MessageModel();
+      receivedMessage.author = messageInJson.author;
+      receivedMessage.message = messageInJson.message;
+      receivedMessage.dtSend = messageInJson.dtSend;
+
+      return receivedMessage;
+
+    } catch (e) {
+      console.log('Erro: ' + e)
+    }
   }
 
   sendMessage(messageAuthor: string, messageContent: string) {
@@ -76,6 +82,15 @@ export class ChatComponent implements OnInit {
 
   private afterSendMessage() {
     this.inputMessage.nativeElement.value = "";
+  }
+
+  /**
+  * Depois de renderizar a tela, desce o elemento scroll da div
+  * 'messages-panel' o máximo possível.
+  */
+
+  private scrollDownMessages() {
+    document.getElementById('messagesPanel').scrollTop = 9999999999999;
   }
 
 }

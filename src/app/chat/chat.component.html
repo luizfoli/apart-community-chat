@@ -1,6 +1,6 @@
 <div class="chat-panel">
     <div name="messagesPanel" id="messagesPanel" class="messages-panel">
-        <app-message></app-message>
+        <app-message *ngFor="let message of messages" [message]="message"></app-message>
     </div>
     <div class="message-sender">
         <input #inputAuthor type="text" id="inputAuthor" placeholder="Digite seu nome">
