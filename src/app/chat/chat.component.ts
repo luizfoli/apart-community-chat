@@ -18,6 +18,7 @@ export class ChatComponent implements OnInit {
   private socketService: SocketService;
   messages: MessageModel[] = [];
 
+  @ViewChild('messagesPanel') messagesPanel: ElementRef;
   @ViewChild('inputMessage') inputMessage: ElementRef;
 
   constructor() {
@@ -34,6 +35,13 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    /**
+      * Depois de renderizar a tela, desce o elemento scroll da div
+      * 'messages-panel' o máximo possível.
+      */
+
+    document.getElementById('messagesPanel').scrollTop = 9999999999999;
   }
 
   /**
