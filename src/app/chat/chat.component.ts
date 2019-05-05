@@ -57,7 +57,8 @@ export class ChatComponent implements OnInit {
       let receivedMessage = new MessageModel();
       receivedMessage.author = messageInJson.author;
       receivedMessage.message = messageInJson.message;
-      receivedMessage.dtSend = messageInJson.dtSend;
+      receivedMessage.dtSend =
+        new Date(messageInJson.dtSend).toLocaleDateString() + ' ' + messageInJson.timeDtSend;
 
       return receivedMessage;
 
@@ -69,7 +70,8 @@ export class ChatComponent implements OnInit {
   sendMessage(messageAuthor: string, messageContent: string) {
     let newMessage = new MessageModel();
     newMessage.author = messageAuthor;
-    newMessage.dtSend = new Date();
+    newMessage.dtSend = new Date().toLocaleDateString()
+    newMessage.timeDtSend = new Date().toLocaleTimeString();
     newMessage.message = messageContent;
     this.socketService.send(newMessage);
     this.afterSendMessage();
