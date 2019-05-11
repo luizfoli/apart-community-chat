@@ -10,7 +10,7 @@
   position: absolute;
   background-color: #fff;
   border-radius: 10px 0px 0px 10px;
-  width: 35%;
+  width: 50%;
   height: 350px;
   top: 40%;
   left: 50%;
@@ -91,4 +91,27 @@
 .messages-panel::-webkit-scrollbar-thumb
 {
 	background-color: #000000;
+}
+
+@media only screen and (min-width: 375px) {
+
+  .messages-panel {
+    width: 300px;
+  }
+
+  .message-sender {
+    width: 80%;
+  }
+
+}
+
+@media only screen and (min-width: 768px) {
+
+  .messages-panel {
+    width: 50%;
+  }
+
+  .message-sender {
+    width: 50%;
+  }
 }
