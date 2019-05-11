@@ -29,7 +29,7 @@
   transform: translate(-50%, 470%);
 }
 
-.message-sender input {
+.message-sender__input-author {
   position: absolute;
   width: 85%;
   left: 1%;
@@ -44,7 +44,7 @@
   outline: none;
 }
 
-.message-sender textarea {
+.message-sender__input-message {
   position: absolute;
   width: 85%;
   top: 45%;
