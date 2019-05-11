@@ -3,8 +3,8 @@
         <app-message *ngFor="let message of messages" [message]="message"></app-message>
     </div>
     <div class="message-sender">
-        <input #inputAuthor type="text" id="inputAuthor" placeholder="Digite seu nome">
-        <textarea #inputMessage id="inputMessage" placeholder="Digite sua mensagem"></textarea>
-        <button class="btn-sender" (click)="sendMessage(inputAuthor.value, inputMessage.value)">Enviar</button>
+        <input #inputAuthor class="message-sender__input-author" type="text" id="inputAuthor" placeholder="Digite seu nome">
+        <input #inputMessage class="message-sender__input-message" type="text" id="inputMessage" placeholder="Digite sua mensagem">
+        <button type="submit" class="btn-sender" (click)="sendMessage(inputAuthor.value, inputMessage.value)">Enviar</button>
     </div>
 </div>
