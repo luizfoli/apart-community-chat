@@ -33,9 +33,6 @@ export class ChatComponent implements OnInit {
         this.scrollDownMessages();
       }
     });
-
-    console.log(this.messages)
-
   }
 
   ngOnInit() {
@@ -92,7 +89,9 @@ export class ChatComponent implements OnInit {
   */
 
   private scrollDownMessages() {
-    document.getElementById('messagesPanel').scrollTop = 9999999999999;
+    setTimeout(function() {
+      document.getElementById('messagesPanel').scrollTop = 99999999999;
+    }, 250);
   }
 
 }
