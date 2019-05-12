@@ -5,6 +5,8 @@ import { SocketService } from '../service/socket.service';
 import { MessageModel } from './model/MessageModel';
 import { Message } from "@stomp/stompjs";
 
+import { DateFormat } from '../date/DateFormat';
+
 const SEND_MESSAGE = "/send/message";
 
 @Component({
@@ -17,6 +19,7 @@ export class ChatComponent implements OnInit {
 
   private socketService: SocketService;
   messages: MessageModel[] = [];
+  dateFormat = new DateFormat; 
 
   @ViewChild('messagesPanel') messagesPanel: ElementRef;
   @ViewChild('inputMessage') inputMessage: ElementRef;
@@ -35,9 +38,7 @@ export class ChatComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    this.scrollDownMessages();
-  }
+  ngOnInit() {  }
 
   /**
    * Método responsável por preparar as messagens do tipo
@@ -54,8 +55,7 @@ export class ChatComponent implements OnInit {
       let receivedMessage = new MessageModel();
       receivedMessage.author = messageInJson.author;
       receivedMessage.message = messageInJson.message;
-      receivedMessage.dtSend =
-        new Date(messageInJson.dtSend).toLocaleDateString() + ' ' + messageInJson.timeDtSend;
+      receivedMessage.dtSend = messageInJson.dtSend + ' ' + messageInJson.timeDtSend;
 
       return receivedMessage;
 
@@ -70,10 +70,12 @@ export class ChatComponent implements OnInit {
       return;
     }
 
+    const date = new Date();
+
     let newMessage = new MessageModel();
     newMessage.author = messageAuthor;
-    newMessage.dtSend = new Date().toLocaleDateString()
-    newMessage.timeDtSend = new Date().toLocaleTimeString();
+    newMessage.dtSend = this.dateFormat.returnDateFormat(date);
+    newMessage.timeDtSend = this.dateFormat.returnTimeFormat(date);
     newMessage.message = messageContent;
     this.socketService.send(newMessage);
     this.afterSendMessage();
