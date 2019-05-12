@@ -1,9 +1,8 @@
 .content {
     height: 100vh;
+    min-height: 100%;
     width: 100vw;
-    background-image: 
-        linear-gradient(
-            to right bottom,
-            rgba(40, 180, 131),
-            rgba(126, 213, 111));
+    min-width: 100%;
+
+    background-color:  rgba(40, 180, 131)
 }
