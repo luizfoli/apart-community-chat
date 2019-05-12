@@ -94,10 +94,12 @@
 
   .messages-panel {
     width: 300px;
+    height: 350px;
   }
 
   .message-sender {
     width: 80%;
+    height: 100px;
   }
 
 }
