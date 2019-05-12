@@ -5,6 +5,8 @@ import { SocketService } from '../service/socket.service';
 import { MessageModel } from './model/MessageModel';
 import { Message } from "@stomp/stompjs";
 
+import { DateFormat } from '../date/DateFormat';
+
 const SEND_MESSAGE = "/send/message";
 
 @Component({
@@ -17,6 +19,7 @@ export class ChatComponent implements OnInit {
 
   private socketService: SocketService;
   messages: MessageModel[] = [];
+  dateFormat = new DateFormat; 
 
   @ViewChild('messagesPanel') messagesPanel: ElementRef;
   @ViewChild('inputMessage') inputMessage: ElementRef;
@@ -33,14 +36,9 @@ export class ChatComponent implements OnInit {
         this.scrollDownMessages();
       }
     });
-
-    console.log(this.messages)
-
   }
 
-  ngOnInit() {
-    this.scrollDownMessages();
-  }
+  ngOnInit() {  }
 
   /**
    * Método responsável por preparar as messagens do tipo
@@ -57,8 +55,7 @@ export class ChatComponent implements OnInit {
       let receivedMessage = new MessageModel();
       receivedMessage.author = messageInJson.author;
       receivedMessage.message = messageInJson.message;
-      receivedMessage.dtSend =
-        new Date(messageInJson.dtSend).toLocaleDateString() + ' ' + messageInJson.timeDtSend;
+      receivedMessage.dtSend = messageInJson.dtSend + ' ' + messageInJson.timeDtSend;
 
       return receivedMessage;
 
@@ -68,13 +65,24 @@ export class ChatComponent implements OnInit {
   }
 
   sendMessage(messageAuthor: string, messageContent: string) {
+
+    if(!this.verifyMessageCanBeSend(messageAuthor, messageContent)) {
+      return;
+    }
+
+    const date = new Date();
+
     let newMessage = new MessageModel();
     newMessage.author = messageAuthor;
-    newMessage.dtSend = new Date().toLocaleDateString()
-    newMessage.timeDtSend = new Date().toLocaleTimeString();
+    newMessage.dtSend = this.dateFormat.returnDateFormat(date);
+    newMessage.timeDtSend = this.dateFormat.returnTimeFormat(date);
     newMessage.message = messageContent;
     this.socketService.send(newMessage);
     this.afterSendMessage();
+  }
+
+  private verifyMessageCanBeSend(messageAuthor: string, messageContent: string) {
+    return (messageAuthor.length > 0 && messageContent.length > 0);
   }
 
   /**
@@ -84,6 +92,7 @@ export class ChatComponent implements OnInit {
 
   private afterSendMessage() {
     this.inputMessage.nativeElement.value = "";
+    this.inputMessage.nativeElement.focus();
   }
 
   /**
@@ -92,7 +101,9 @@ export class ChatComponent implements OnInit {
   */
 
   private scrollDownMessages() {
-    document.getElementById('messagesPanel').scrollTop = 9999999999999;
+    setTimeout(function () {
+      document.getElementById('messagesPanel').scrollTop = 99999999999;
+    }, 250);
   }
 
 }
