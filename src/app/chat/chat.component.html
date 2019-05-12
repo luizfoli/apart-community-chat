@@ -1,10 +1,12 @@
 <div class="chat-panel">
-    <div name="messagesPanel" id="messagesPanel" class="messages-panel">
-        <app-message *ngFor="let message of messages" [message]="message"></app-message>
-    </div>
-    <div class="message-sender">
-        <input #inputAuthor class="message-sender__input-author" type="text" id="inputAuthor" placeholder="Digite seu nome">
-        <input #inputMessage class="message-sender__input-message" type="text" id="inputMessage" placeholder="Digite sua mensagem">
-        <button type="submit" class="btn-sender" (click)="sendMessage(inputAuthor.value, inputMessage.value)">Enviar</button>
-    </div>
+  <div name="messagesPanel" id="messagesPanel" class="messages-panel">
+    <app-message *ngFor="let message of messages" [message]="message"></app-message>
+  </div>
+  <div class="message-sender">
+    <input #inputAuthor class="message-sender__input-author" type="text" id="inputAuthor" placeholder="Digite seu nome">
+    <input #inputMessage class="message-sender__input-message" type="text" id="inputMessage"
+      placeholder="Digite sua mensagem" (keydown.enter)="sendMessage(inputAuthor.value, inputMessage.value)">
+    <button type="submit" class="btn-sender"
+      (click)="sendMessage(inputAuthor.value, inputMessage.value)">Enviar</button>
+  </div>
 </div>

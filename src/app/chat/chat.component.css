@@ -76,21 +76,18 @@
   outline: none;
 }
 
-.messages-panel::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #f1f1f1;
+.messages-panel::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f1f1f1;
 }
 
-.messages-panel::-webkit-scrollbar
-{
-	width: 4px;
-	background-color: #f1f1f1;
+.messages-panel::-webkit-scrollbar {
+  width: 4px;
+  background-color: #f1f1f1;
 }
 
-.messages-panel::-webkit-scrollbar-thumb
-{
-	background-color: #000000;
+.messages-panel::-webkit-scrollbar-thumb {
+  background-color: #000000;
 }
 
 @media only screen and (min-width: 375px) {

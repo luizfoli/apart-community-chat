@@ -65,6 +65,11 @@ export class ChatComponent implements OnInit {
   }
 
   sendMessage(messageAuthor: string, messageContent: string) {
+
+    if(!this.verifyMessageCanBeSend(messageAuthor, messageContent)) {
+      return;
+    }
+
     let newMessage = new MessageModel();
     newMessage.author = messageAuthor;
     newMessage.dtSend = new Date().toLocaleDateString()
@@ -74,6 +79,10 @@ export class ChatComponent implements OnInit {
     this.afterSendMessage();
   }
 
+  private verifyMessageCanBeSend(messageAuthor: string, messageContent: string) {
+    return (messageAuthor.length > 0 && messageContent.length > 0);
+  }
+
   /**
    * Método responsável por realizar ações necessárias 
    * no layout depois do envio da mensagem.
@@ -81,6 +90,7 @@ export class ChatComponent implements OnInit {
 
   private afterSendMessage() {
     this.inputMessage.nativeElement.value = "";
+    this.inputMessage.nativeElement.focus();
   }
 
   /**
@@ -89,7 +99,7 @@ export class ChatComponent implements OnInit {
   */
 
   private scrollDownMessages() {
-    setTimeout(function() {
+    setTimeout(function () {
       document.getElementById('messagesPanel').scrollTop = 99999999999;
     }, 250);
   }
